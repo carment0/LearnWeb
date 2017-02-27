@@ -1,0 +1,8 @@
+* { border: 1px solid red;
+}
+img {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  height: 300px;
+}
