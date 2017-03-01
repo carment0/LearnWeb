@@ -12,6 +12,7 @@ Add `</html>` on the last line to end it
 Tags refer to `<>`
 - they come in pairs: open and close Tag
 - tags can be placed inside another aka **nesting**
+- can give tags more instructions by including attributes in the opening tag
 
 # Head of HTML
 - containing information about your HTML file e.g. title
@@ -91,4 +92,82 @@ Tags refer to `<>`
 	<li>Bright copper kettles</li>
 	<li>Warm woolen mittens</li>
 </ol>
+```
+
+## Unordered list
+- a list that is in bullet points
+- start tag opening `<ul>`
+- wrap individual items with `<li>` and `</li>`
+``` html
+<h2>Taco Ingredients</h2>
+<ul>
+    <li>Cheese</li>
+    <li>Sour Cream</li>
+</ul>
+```
+
+# Inline CSS
+- styling in HTML file without a separate CSS file
+
+## Commenting
+`<!-- comment -->`
+
+## Font sizes
+`<p style="font-size: 12px">`
+
+## Font color
+`<h2 style="color: green; font-size:12px">`
+
+## Font type
+`<h1 style="font-family: Arial">`
+
+## Background color
+`<p style="background-color: red"`
+
+## Aligning
+`<h1 style="text-align:center">`
+
+## Bold
+`<strong> skdjfhs </strong>`
+
+## Italics
+`<em> asdkfjsl </em>`
+
+## Table
+`<table></table>`
+
+-table rows
+``` html
+<table>
+  <tr></tr>
+  <tr></tr>
+</table>
+```
+
+- table data/columns
+``` html
+<table>
+  <tr>
+    <td>one</tb>
+    <td>onetwo</tb>
+  </tr>
+  <tr>
+    <td>two</tb>
+    <td>twotwo</tb>
+  </tr>
+</table>
+```
+
+- Head of table
+ - the `<thead>` tag can be thought of as containing information about a table
+ - the `<tbody>` tag containing the actual tabular data.
+
+
+`<thead></thead>
+
+
+``` html
+| Header One     | Header Two     |
+| :------------- | :------------- |
+| Item One       | Item Two       |
 ```
