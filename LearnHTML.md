@@ -13,6 +13,7 @@ Tags refer to `<>`
 - they come in pairs: open and close Tag
 - tags can be placed inside another aka **nesting**
 - can give tags more instructions by including attributes in the opening tag
+  - additional attributes can be separated by `;`
 
 # Head of HTML
 - containing information about your HTML file e.g. title
@@ -61,7 +62,8 @@ Tags refer to `<>`
 
 ## Adding image
 - start opening tag `<img` with the attribute `src="url"`
-- end with `/>`
+- one of the few tags in HTML that are self closing with a single tag
+  - end with `/>`
 ``` html
 <img src="https://s3.amazonaws.com/codecademy-blog/assets/f3a16fb6.jpg"/>
 ```
@@ -133,7 +135,7 @@ Tags refer to `<>`
 ## Italics
 `<em> asdkfjsl </em>`
 
-## Table
+# Table
 `<table></table>`
 
 -table rows
@@ -144,7 +146,7 @@ Tags refer to `<>`
 </table>
 ```
 
-- table data/columns
+## table data/columns
 ``` html
 <table>
   <tr>
@@ -158,16 +160,69 @@ Tags refer to `<>`
 </table>
 ```
 
-- Head of table
+## Head of table
  - the `<thead>` tag can be thought of as containing information about a table
+  - use <th></th> for each column
  - the `<tbody>` tag containing the actual tabular data.
+  - use <td></td> for each column
 
+``` html
+<html>
+    <head>
+        <title>Table Time</title>
+    </head>
 
-`<thead></thead>
+    <body>
 
+        <table border="1px">
+            <thead>
+                <tr>
+                    <th>Famous Monster</th>
+                    <th>Birth Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>King Kong</td>
+                    <td>1933</td>     
+                </tr>
+
+                <tr>
+                    <td>Dracula</td>
+                    <td>1897</td>
+                </tr>
+
+                <tr>
+                    <td>Bride of Frankenstein</td>
+                    <td>1935</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+
+</html>
+```
+
+## Making table titles
+ - use **colspan** attribute for the `<th>` tag within `<thead>` tag
+
+``` html
+<th colspan="3">3 columns across title</th>
+```
+OR
 
 ``` html
 | Header One     | Header Two     |
 | :------------- | :------------- |
 | Item One       | Item Two       |
 ```
+
+# Divide
+- to divide your page into containers and style them individually using `<div></div>`
+``` html
+<div style="width:50px; height:50px; background-color:red"></div>
+```
+
+## Span
+- allows to control styling for smaller parts of your page e.g. text `<span></span>`
