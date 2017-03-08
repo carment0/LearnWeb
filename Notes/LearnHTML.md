@@ -62,7 +62,7 @@ Tags refer to `<>`
 
 ## Adding image
 - start opening tag `<img` with the attribute `src="url"`
-- one of the few tags in HTML that are self closing with a single tag
+- one of the few tags(the other one is the link between html to css) in HTML that are self closing with a single tag
   - end with `/>`
 ``` html
 <img src="https://s3.amazonaws.com/codecademy-blog/assets/f3a16fb6.jpg"/>
