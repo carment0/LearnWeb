@@ -1,4 +1,6 @@
 let turnNumber = 1;
+
+// creating a board to keep track of what has been clicked
 let board = []
 for (let i = 0; i < 3; i += 1) {
   let row = [];
@@ -10,8 +12,10 @@ for (let i = 0; i < 3; i += 1) {
 }
 console.table(board);
 
+// ?
 const log = document.getElementById("log")
 
+// to check if game is over
 function isGameOver(turn) {
     if (turn > 9) {
       return true;
@@ -19,6 +23,7 @@ function isGameOver(turn) {
     // check whether it's 0 wins or x wins, if neither , return false
 }
 
+//
 function removeAllListerners() {
   for (let num = 1; num < 10; num +=1) {
       const box = document.getElementById(num.toString());
@@ -26,6 +31,7 @@ function removeAllListerners() {
   }
 }
 
+//
 function addAllListener() {
   for (let num = 1; num < 10; num +=1) {
       const box = document.getElementById(num.toString());
@@ -37,6 +43,7 @@ function addAllListener() {
 // row = (box num - 1) / 3
 // col = (box num -1) % 3
 
+//
 function clickHandler(event) {
   // box id is a string not a number so we need to covert it
   const box = parseInt(target.id);

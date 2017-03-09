@@ -226,3 +226,25 @@ OR
 
 ## Span
 - allows to control styling for smaller parts of your page e.g. text `<span></span>`
+
+# Linking css file in html
+- placed in the head so the style will be loaded immediately
+``` html
+<head>
+  <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+  <title>Result</title>
+</head>
+```
+
+# linking JS file in html
+- typically placed near the closing body tag unless need to be run before the rest of the html loads
+``` html
+  <body>
+  <script type="text/javascript" src="tic-tac-toe.js"></script>
+  </body>
+```
+
+# adding JS into html
+- can be placed anywhere
+- will be executed accordingly
+`<script></script>`

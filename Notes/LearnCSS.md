@@ -19,13 +19,7 @@ Cascading Style Sheets
 </head>
 ```
 
-# Linking css file in html
-``` html
-<head>
-  <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
-  <title>Result</title>
-</head>
-```
+
 
 ## Syntax for css
 - the selector can be any HTML elements
@@ -150,14 +144,18 @@ p :nth-child(2) {
 - We can change all this with the first positioning property we'll learn: the display property. We'll learn about four possible values.
 
 - block: This makes the element a block box. It won't let anything sit next to it on the page! It takes up the full width.
+`display: block`
 
 - inline-block: This makes the element a block box, but will allow other elements to sit next to it on the same line.
+`display: inline-block`
 
 - inline: This makes the element sit on the same line as another element, but without formatting it like a block. It only takes up as much width as it needs (not the whole line).
   - all your <div>s got squished to the smallest possible width
   - The inline display value is better suited for HTML elements that are blocks by default, such as headers and paragraphs
+`display: inline`
 
 - none: This makes the element and its content disappear from the page entirely
+`display: none`
 
 ## box positioning
 - you can move html element with positive and negative margins values
