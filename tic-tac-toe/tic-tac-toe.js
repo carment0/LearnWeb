@@ -1,29 +1,23 @@
-let turnNumber = 1;
-
-// creating a board to keep track of what has been clicked
+// board = [[0, 0, 0] [0, 0, 0] [0, 0, 0]]
 let board = []
 for (let i = 0; i < 3; i += 1) {
   let row = [];
   for (let j = 0; j < 3; j += 1) {
-      // zero represents empty spot
-    row.push(0);
+    row.push();
   }
   board.push(row);
 }
 console.table(board);
 
-// ?
-const log = document.getElementById("log")
-
-// to check if game is over
-function isGameOver(turn) {
-    if (turn > 9) {
-      return true;
-    }
-    // check whether it's 0 wins or x wins, if neither , return false
-}
-
 //
+// let column = []
+// let j = 0
+// for (let i = 0; i < 3; i += 1) {
+//   column.push(board[i][j])
+// }
+
+
+// stops clicking
 function removeAllListerners() {
   for (let num = 1; num < 10; num +=1) {
       const box = document.getElementById(num.toString());
@@ -31,7 +25,7 @@ function removeAllListerners() {
   }
 }
 
-//
+// allows clicking
 function addAllListener() {
   for (let num = 1; num < 10; num +=1) {
       const box = document.getElementById(num.toString());
@@ -39,16 +33,25 @@ function addAllListener() {
   }
 }
 
-// 0, but not 1
-// row = (box num - 1) / 3
-// col = (box num -1) % 3
+// end game
+function isGameOver(turn) {
+    if (turn > 9) {
+      return true;
+    }
+    // check whether it's 0 wins or x wins, if neither , return false
+}
 
+
+let turnNumber = 1;
 //
 function clickHandler(event) {
-  // box id is a string not a number so we need to covert it
-  const box = parseInt(target.id);
+  // 0, but not 1
+  // row = (box num - 1) / 3
+  // col = (box num -1) % 3
+  const box = parseInt(box.id);
   const row = parseInt((boxNum - 1) / 3);
   const col = parseInt((boxNum - 1) % 3);
+
 
   if (turnNumber % 2 === 1) {
     box.innerHTML = 'x';
@@ -70,22 +73,8 @@ function clickHandler(event) {
   }
 }
 
+
+const log = document.getElementById("log")
+
+
 addAllListener()
-
-
-
-
-/*
- const box1 = document.getElementById("1")
-
-box1.addEventListener("click", function() {
-  log.append("Box 1 is clicked");
-});
-
-const box2 = document.getElementById("2")
-box1.addEventListener("click", function() {
-  log.append("Box 2 is clicked");
-});
-
-const box3 = document.getElementById("3")
-*/
