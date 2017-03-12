@@ -61,6 +61,23 @@ comment `
     }
   }
 ```
+- multiple if statements
+  `else if ()` or
+``` js
+switch (/*Some expression*/) {
+    case 'option1':
+        // Do something
+        break;
+    case 'option2':
+        // Do something else
+        break;
+    case 'option3':
+        // Do a third thing
+        break;
+    default:
+       // Do yet another thing
+}
+```
 
 ### operators
 - `+ - / *`
@@ -71,7 +88,7 @@ score = score + 10;
 // this is same as
 score += 10;
 ```
-- short hand arithmetic operators
+- short hand arithmetic operators (expression will be either true or false)
 `+= -= *= /=`
 - operators precedence
 - comparison operators
@@ -121,7 +138,8 @@ for (i = 100; i > 0; i -= 5) {console.log(i);}
   - within the function it creates a variable as a local variable. only exists and relevant inside the function itself
     - only occurs in functions
   - if declaring variables outside of the function it becomes a global variable, no need to declare it again inside the function. just use it.
-  -
+- creating variable of a function
+`var whateverName = function() {}``
 
 ## types and objects
 ### arrays
@@ -151,22 +169,89 @@ for (i = 100; i > 0; i -= 5) {console.log(i);}
   - look up references for all the methods
 
 ### objects
--
+- is a container that gathers together some data and some behavior
+- an object allows us to gather variable and functions that belong together and in enclose them into a larger object
+``` js
+var playerName = "Fred"
+var playerScore = 10000;
+var playerRank = 1;
+
+var player = new Object():
+player.name = "Fred";
+player.score = 10000;
+player.rank = 1;
+//OR by name value pair
+var player1 = {name: "Fred", score: 10000, rank: 1};
+```
+  - the variables in the 1st part are changed into properties that belongs to an object in the second part
 
 ## document object model (DOM)
--
+- document refers to the webpage
+  - browser view and the other one is source code. same doc but different representation
+- objects refers to any element/components in the document
+- model refers to the html represent as a tree structure
+  - each pieces are nodes
+  - can describe the relationship, parent and child
+  - agreed upon set of terms that describe exactly how to interact with the pieces of a webpage
+- the way to reach into the page from our script and the way our page reach into our script
 
 ### nodes and elements
--
+- nodes
+  - represented by elements, attributes, texts, comments, and so on
+  - 12 node types in DOM
+    - only interested in three of them Node.ELEMENT_NODE == 1, Node.ATTRIBUTE_NODE == 2, and Node.TEXT_NODE == 3
+    - attribute node and text nodes belong to elements
 
 ### accessing DOM elemets
--
+- retrieving an element by ID
+  - element with unique ID in HTML can be grabbed by js `document.getElementById("someId");`
+  - how to call it
+    - create a variable and set it to the result of calling the elementbyid
+    - the variable will be used to read the properties of the element and therefore you can call methods of the element
+    - once you have an element, you can move to different nodes such as parent or child of that element
+  - to get more than one element without ID
+    - `getElementsByTagName("whatevertag");`
+    - set it equal to a variable and it will store the elements as a array
+  - methods : `.nodeType, .innerHTML, .childNode`
 
 ### changing DOM elements
--
+1. get the element
+2. change element
+  - change attribute
+    -`whateverelementvariable.getAttribute("whateverattribute");`
+    - `whateverelementvariable.setAttribute("whateverattribute", "whatevervalue");`
+      - value always a string
 
 ### creating DOM elements
--
+1. create the element `var whatevervariable = document.createElement("whateverelement");`
+  - not part of the page yet, this element is floating in space
+2. add it to the document `getelementvariable.appendChild(whatevervariable);`
+
+- creating text nodes
+``` js
+var myText = document.createTextNode("ksdjflasjdf");
+myNewElement.appendChild(myText);
+```
+
+``` js
+var newHeading = document.createElement("h1");
+newHeading.innerHTML = "Did You Know?";
+document.getElementById("trivia").appendChild(newHeading);
+
+// or
+var newHeading = document.createElement("h1");
+var h1Text = document.createTextNode("Did You Know?");
+newHeading.appendChild(h1Text);
+document.getElementById("trivia").appendChild(newHeading);
+```
+
+- alternative to appendChild
+  - add child into a certain location e.g. in a list
+  ``` js
+  var myNewElement = document.createElement("li");
+  var secondIten = myElementsByTagName("li")[1];
+  myElement.insertBefore(myNewElement, secondItem);
+  ```
 
 ## events and event listeners
 -

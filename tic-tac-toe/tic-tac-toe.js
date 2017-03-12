@@ -33,11 +33,38 @@ function addAllListener() {
   }
 }
 
+function isRowWinningForX (row) {
+  for (let i = 0; i < 3; i++) {
+    if (row[i] !== 'x') {
+      return false;
+    }
+  }
+  return true;
+}
+
+function isRowWinningForO (row) {
+  for (let i = 0; i < 3; i++) {
+    if (row[i] !== 'o') {
+      return false;
+    }
+  }
+  return true;
+}
+
 // end game
 function isGameOver(turn) {
     if (turn > 9) {
       return true;
     }
+
+    for (let rowNum = 0; rowNum < 3; rowNum++) {
+        let currentRow = board[rowNum];
+
+        if (isRowWinningForX(currentRow) || isRowWinningForO(currentRow)) {
+          return true;
+        }
+    }
+    return false;
     // check whether it's 0 wins or x wins, if neither , return false
 }
 
@@ -48,7 +75,8 @@ function clickHandler(event) {
   // 0, but not 1
   // row = (box num - 1) / 3
   // col = (box num -1) % 3
-  const box = parseInt(box.id);
+  const box = event.target
+  const boxNum = parseInt(event.target.id);
   const row = parseInt((boxNum - 1) / 3);
   const col = parseInt((boxNum - 1) % 3);
 
@@ -69,12 +97,10 @@ function clickHandler(event) {
     removeAllListerners();
     log.innerHTML = 'Game is over!';
   } else {
-    log.innerHTML = "Box " + num  + " is clicked!";
+    log.innerHTML = "Box " + boxNum  + " is clicked!";
   }
 }
 
-
 const log = document.getElementById("log")
-
 
 addAllListener()
