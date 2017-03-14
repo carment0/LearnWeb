@@ -254,10 +254,30 @@ document.getElementById("trivia").appendChild(newHeading);
   ```
 
 ## events and event listeners
--
-
 ### event handling
--
+- reacting with the user
+- what is an event?
+  - events are going on all the time, just have to choose which one you want to manipulate
+  - event names `onload`, `onclick`, `onmouseover`, `onblur`, `onfocus`
+  - you do not writing the event itself, you write the event handler or event listener
+  - you write your function and you volunteer to handle or to listen out for one or more events so that you can respond when they happen
+- multiple ways of handling events
+  1. within HTML (not recommended)
+  ``` html
+  <button onclick="alert('Hello, world');">
+    Run Some JS
+  </button>
+  ```
+  2. this function does not need name because we're saying exactly when this gets executed. in this case, when they click on myelement. semicolon added here bc the whole thing is a statment
+  ``` JS
+  myelement.onclick = function() {
+    // your event handler
+  };
+  ```
+  3. Can call directly on the document object or any element you have. you give three pieces of information: event (without `on`), function  you want to run and false(rarely used). For each event you can add multiple listeners. You have a lot of flexibility to dynamically add and use its mirror image to remove event listeners `removeEventListerner` as your script is running.
+  ``` JS
+  document.addEventListener('click', myFunction, false);
+  ```
 
 ### onClick and onLoad events
 -
