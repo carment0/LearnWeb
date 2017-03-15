@@ -280,10 +280,48 @@ document.getElementById("trivia").appendChild(newHeading);
   ```
 
 ### onClick and onLoad events
--
+- code to respond to common events
+- two events that are the most common, clicking and loading something
+- onClick
+  ```js
+  // react to clicking anywhere in webpage
+  document.onclick = function () {
+    alert("You clicked somewhere!");
+  }
+  ```
+
+  ``` js
+  //react to clicking on certain thing
+  var myImage = document.getElementById("mainImage");
+  myImage.onclick = function() {
+    alert "you clicked the image");
+  }
+
+  ```
+- onLoad
+``` js
+window.onload = function() {}
+```
 
 ### onBlur and onFocus events
--
+- value on the text field to appear to disappear
+``` js
+var emailField = document.getElementById("email");
+
+emailField.onfocus = function () {
+  if (emailField.value == "your email") {
+    emailField.value = " ";
+  }
+};
+
+emailField.onblur = function () {
+  if (emailField.value == " ") {
+    emailField.value = "your email";
+  }
+};
+```
 
 ### timers
--
+- setTimeout and setInterval is in milliseconds
+- `setTimeout(simpleMessage, 5000);`
+- `setInterval(changeImage, 5000);`

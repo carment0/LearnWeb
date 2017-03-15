@@ -24,7 +24,7 @@ Cascading Style Sheets
 ## Syntax for css
 - the selector can be any HTML elements
 - property is an aspect of a selector
-- value settung for the property
+- value setting for the property
 ``` css
 selector {
   property: value;
