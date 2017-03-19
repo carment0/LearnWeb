@@ -115,6 +115,7 @@ score += 10;
 - can change log to debug, info, error and warn
 
 ### loops aka iteration
+- const and let
 #### for loops
 1. set up index variable before creating loops
 2. check the condition
@@ -166,7 +167,25 @@ do {
     - only occurs in functions
   - if declaring variables outside of the function it becomes a global variable, no need to declare it again inside the function. just use it.
 - creating variable of a function
-`var whateverName = function(code...; code..;) {};``
+`var whateverName = function(properties) {code...; code..;};``
+- function can be used within other or same functions inte
+### methods
+- Methods are an important part of object oriented programming (OOP).
+- They can be used to change object property values.
+- They can be used to make calculations based on object properties. Functions can only use parameters as an input, but methods can make calculations with object properties.
+- It turns out we can make a method work for many objects using a new keyword, this. The keyword this acts as a placeholder, and will refer to whichever object called that method when the method is actually used.
+- creating method `var whateverName.methodName = function(properties) {};``
+``` js
+var bob = new Object();
+bob.name = "Bob Smith";
+bob.age = 30;
+
+bob.setAge = function (newAge){
+  bob.age = newAge;
+};
+
+bob.setAge(40);
+```
 
 ## types and objects
 ### arrays
@@ -241,8 +260,52 @@ var bob = new Object();
 bob.name = "Bob Smith";
 bob.age = 30;
 
+// or custom constructor
+function Person(name,age) {
+  this.name = name;
+  this.age = age;
+}
+
+var bob = new Person("Bob Smith", 30);
+var susan = new Person("Susan Jordan", 25);
+
 ```
 
+``` js
+// empty object - this is used for holding key and values, like a dictionary
+const someData = {};
+
+// class is a tempalte for creating more complicated objects, such as those with
+// complex methods (functionality)
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  // method - only use for instance of a class
+  eat() {
+    console.log(this.name, 'is eating');
+  }
+}
+
+carmen = new Person('Carmen', 28);
+carmen.eat()
+
+```
+
+``` js
+// Our person constructor
+function Person (name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// Now we can make an array of people
+var family = new Array();
+family[0] = new Person("alice", 40);
+family[1] = new Person("bob", 42);
+family[2] = new Person("michelle", 8);
+```
 - accessing properties
 ``` js
 
