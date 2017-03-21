@@ -31,55 +31,60 @@ function isRowWinningForX () {
 }
 
 function isColumnWinningForX () {
-  for (let colNum = 0; colNum < 3; colNum++) {
-    let xCount = 0;
+    for (let colNum = 0; colNum < 3; colNum++) {
+        let xCount = 0;
 
-    for (let i = 0; i < 3; i++) {
-
-      if (board[i][colNum] === 'x') {
-        xCount += 1;
-      }
-      if (xCount === 3) {
-        return true;
-      }
+        for (let i = 0; i < 3; i++) {
+            if (board[i][colNum] === 'x') {
+                xCount += 1;
+            }
+        }
+        
+        // Check after you finish looping through elements
+        if (xCount === 3) {
+            return true;
+        }
     }
-  }
-  return false;
+    return false;
 }
 
 function isDiagonal1WinningForX () {
-  let xCount = 0;
-  for (let i = 0; i < 3; i++) {
-    if (board[i][i] === 'x') {
-     xCount += 1;
-   }
-   if (xCount === 3) {
-     return true;
-   }
- }
- return false;
+    let xCount = 0;
+    for (let i = 0; i < 3; i++) {
+        if (board[i][i] === 'x') {
+            xCount += 1;
+        }
+    }
+    // Check after you finish looping through elements
+    if (xCount === 3) {
+        return true;
+    }
+ 
+    return false;
 }
 
 function isDiagonal2WinningForX () {
-let xCount = 0;
-let i = 0;
-let j = 2;
+    let xCount = 0;
+    
+    let i = 0;
+    let j = 2;
 
-  while (i < 3 && j >= 0) {
-    if (board[i][j] === 'x') {
-      xCount += 1;
-      i += 1;
-      j -= 1;
+    while (i < 3 && j >= 0) {
+        if (board[i][j] === 'x') {
+            xCount += 1;
+        }
+        
+        if (xCount === 3) {
+            return true;
+        }
+        
+        // Increment and decrement must occur as the last step of the while loop
+        i += 1;
+        j -= 1;    
     }
-    if (xCount === 3) {
-      return true;
-    }
-  }
-  return false;
+    
+    return false;
 }
-
-
-
 
 
 function isRowWinningForO () {
@@ -87,48 +92,45 @@ function isRowWinningForO () {
         let oCount = 0;
 
         for (let i = 0; i < 3; i++) {
-
             if (board[rowNum][i] === 'o') {
                 oCount += 1;
             }
-
-            if (oCount === 3) {
-                return true;
-            }
+        }
+        
+        // Check count after looping through elements
+        if (oCount === 3) {
+            return true;
         }
     }
     return false;
 }
 
 function isColumnWinningForO () {
-  for (let colNum = 0; colNum < 3; colNum++) {
-    let oCount = 0;
-
-    for (let i = 0; i < 3; i++) {
-
-      if (board[i][colNum] === 'o') {
-        oCount += 1;
-      }
-      if (oCount === 3) {
-        return true;
-      }
+    for (let colNum = 0; colNum < 3; colNum++) {
+        let oCount = 0;
+        for (let i = 0; i < 3; i++) {
+            if (board[i][colNum] === 'o') {
+                oCount += 1;
+            }
+        }
     }
-  }
-  return false;
+    
+    return false;
 }
 
 function isDiagonal1WinningForO () {
- let oCount = 0;
- for (let i = 0; i < 3; i++) {
-
-   if (board[i][i] === 'o') {
-     oCount += 1;
-   }
-   if (oCount === 3) {
-     return true;
-   }
- }
- return false;
+    let oCount = 0;
+    for (let i = 0; i < 3; i++) {
+        if (board[i][i] === 'o') {
+            oCount += 1;
+        }
+    }
+    
+    if (oCount === 3) {
+        return true;
+    }
+    
+    return false;
 }
 
 function isGameOver() {
