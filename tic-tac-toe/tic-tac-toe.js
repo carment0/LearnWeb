@@ -1,7 +1,7 @@
 function removeAllListerners() {
     for (let num = 1; num < 10; num +=1) {
         const box = document.getElementById(num.toString());
-        box.addEventListener("click", handleClick);
+        box.removeEventListener("click", handleClick);
     }
 }
 
@@ -66,20 +66,17 @@ let i = 0;
 let j = 2;
 
   while (i < 3 && j >= 0) {
-    if (board[i][j] === 'x') {
+      if (board[i][j] === 'x') {
       xCount += 1;
-      i += 1;
-      j -= 1;
     }
     if (xCount === 3) {
       return true;
     }
+    i += 1;
+    j -= 1;
   }
   return false;
 }
-
-
-
 
 
 function isRowWinningForO () {
@@ -131,12 +128,31 @@ function isDiagonal1WinningForO () {
  return false;
 }
 
+function isDiagonal2WinningForO () {
+let oCount = 0;
+let i = 0;
+let j = 2;
+
+  while (i < 3 && j >= 0) {
+      if (board[i][j] === 'o') {
+      oCount += 1;
+    }
+    if (oCount === 3) {
+      return true;
+    }
+    i += 1;
+    j -= 1;
+  }
+  return false;
+}
+
+
 function isGameOver() {
     if (turnNumber > 9) {
         return true;
     }
 
-    if (isRowWinningForX() || isRowWinningForO() || isColumnWinningForO() || isColumnWinningForX() || isDiagonal1WinningForX() || isDiagonal2WinningForX()) {
+    if (isRowWinningForX() || isRowWinningForO() || isColumnWinningForO() || isColumnWinningForX() || isDiagonal1WinningForX() || isDiagonal2WinningForX() || isDiagonal1WinningForO() || isDiagonal2WinningForO()) {
         return true;
     }
     return false;
