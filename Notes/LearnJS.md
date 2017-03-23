@@ -244,18 +244,20 @@ phonebookEntry.phone = function() {
 };
 
 phonebookEntry.phone();
-
-// OR
-
+```
+OR use literal notation - creates a single object. Literal notation uses curly brackets { } and the object's default properties are defined within the brackets using property:value notation.
+``` js
 var myObj = {
     type: [fancy, cute],
     disposition: 'sunny'
 };
 
 var emptyObj = {};
+```
 
-// OR use constructor to create object
+OR use constructor notation - involves defining an object constructor. And like defining a function, we use the function keyword. You can think of this constructor as a "template" from which you can create multiple objects. To create a new object from a constructor, we use the new keyword.
 
+``` js
 var bob = new Object();
 bob.name = "Bob Smith";
 bob.age = 30;
@@ -271,11 +273,39 @@ var susan = new Person("Susan Jordan", 25);
 
 ```
 
+we can add methods (i.e., functions associated with objects) to a constructor and literal notation
+
+``` js
+// constructor example
+function Person(job, married) {
+    this.job = job;
+    this.married = married;
+    this.speak = function(speak) {
+        console.log('Hello!');
+        };
+}
+
+var user = new Person("Codecademy Student",false);
+user.speak();
+
+// literal example
+var james = {
+    job: "programmer",
+    married: false,
+    speak: function(mood) {
+        console.log('Hello, I am feeling ' + mood)
+    }
+};
+
+james.speak("great");
+james.speak("just okay");
+```
+
 ``` js
 // empty object - this is used for holding key and values, like a dictionary
 const someData = {};
 
-// class is a tempalte for creating more complicated objects, such as those with
+// class is a template for creating more complicated objects, such as those with
 // complex methods (functionality)
 class Person {
   constructor(name, age) {
@@ -307,6 +337,17 @@ family[1] = new Person("bob", 42);
 family[2] = new Person("michelle", 8);
 
 ```
+- retrieving property values by dot notation `someObj.propName;` or bracket notation `someObj["propName"];`
+  - An advantage of bracket notation is that we are not restricted to just using strings in the brackets. We can also use variables whose values are property names
+
+  ``` js
+  var someObj = {propName: someValue};
+  var myProperty = "propName";
+  someObj[myProperty];
+  //The last line is exactly the same as using someObj["propName"];
+  ```
+
+
 - accessing properties
 ``` js
 
@@ -328,6 +369,53 @@ var dog = {
 
 var species = dog["species"];
 ```
+
+#### Finding object's property
+- you can use `.hasOwnProperty("whateveryouarechecking")` method to know if an object has a particular property. It will print true or false.
+``` js
+var myObj = {
+    name: "momo",
+};
+
+console.log( myObj.hasOwnProperty('name') ); // should print true
+console.log( myObj.hasOwnProperty('nickname') ); // should print false
+```
+
+#### listing all the property of an object
+- To print out all elements, we can use a for/in loop
+``` js
+var dog = {
+species: "bulldog",
+age: 3,
+color: brown
+};
+
+for(var property in dog) {
+  console.log(property);
+}
+```
+
+#### listing all the values in the property of an object
+``` js
+var dog = {
+species: "bulldog",
+age: 3,
+color: brown
+};
+
+for(var x in dog) {
+console.log(dog[x]);
+}
+```
+
+### IDing variables
+- We even tell if a variable is an object, a number or string by using `typeof`
+``` js
+var someObject = {someProperty: someValue};
+console.log( typeof someObject );
+```
+
+
 
 ## document object model (DOM)
 - document refers to the webpage
@@ -469,3 +557,50 @@ emailField.onblur = function () {
 - setTimeout and setInterval is in milliseconds
 - `setTimeout(simpleMessage, 5000);`
 - `setInterval(changeImage, 5000);`
+
+# object oriented programming OPP
+## classes
+- when you make a constructor you are defining a class
+- a type of object
+- an  object is a particular instance of a class
+### prototype
+- keeps track of properties and methods class can and cannot do
+- by using the `.prototype` method to a class, all members if the class can use it even though an individual object does not have the method assigned to them
+``` js
+function Dog (breed) {
+  this.breed = breed;
+};
+
+// here we make buddy and teach him how to bark
+var buddy = new Dog("golden Retriever");
+Dog.prototype.bark = function() {
+  console.log("Woof");
+};
+buddy.bark();
+// here we make snoopy
+var snoopy = new Dog("Beagle");
+/// this time it works!
+snoopy.bark();
+```
+
+## inheritance
+- allows one class to see and use the methods and properties of another class of the same properties and methods
+``` js
+// the original Animal class and sayName method
+function Animal(name, numLegs) {
+    this.name = name;
+    this.numLegs = numLegs;
+}
+Animal.prototype.sayName = function() {
+    console.log("Hi my name is " + this.name);
+};
+
+function Penguin(name) {
+    this.name = name;
+    this.numLegs = 2;
+    }
+
+// set its prototype to be a new instance of Animal
+Penguin.prototype = new Animal();
+// This means that Penguin inherits properties and methods from Animal.
+```
