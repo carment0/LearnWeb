@@ -1,0 +1,18 @@
+
+body {
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1 {
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 100px;
+  color: yellow;
+  text-shadow: 3px 2px black;
+}
+
+div {
+  font-family: Charcoal, sans-serif;
+  text-align: center;
+}
